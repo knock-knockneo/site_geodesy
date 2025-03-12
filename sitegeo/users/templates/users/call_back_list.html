@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Список обратных звонков</h2>
+
+{% for call in callbacks %}
+    <p><label>Имя: </label>{{ call.name }}</p>
+    <p><label>Номер телефона: </label>{{ call.phone }}</p>
+    <p><label>Комментарий: </label>{{ call.comment }}</p>
+    <p><label>Время заявки: </label>{{ call.time_create }}</p>
+    <p><label>Отработан ли звонок ?: </label>{{ call.status }}</p>
+<hr>
+
+{% endfor %}
+{% endblock %}

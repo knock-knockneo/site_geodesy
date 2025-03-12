@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% if user.is_staff %}
+    <ul class="admin-menu">
+        <li><a href="addorder/">Добавить заказ</a></li>
+        <li><a href="list_callback/">Список обратных звонков</a></li>
+        <li><a href="{% url 'admin:index' %}">Страница администрирования</a></li>
+    </ul>
+    {% endif %}
+
+<h1>Личный кабинет</h1>
+    <p>Логин пользователя: {{ user.username }}</p>
+    <p>Имя: {{ user.first_name }}</p>
+    <p>Email: {{ user.email }}</p>
+<hr>
+<h3>Тут отображается список заказов связанных с вашим профилем</h3>
+
+<ul>
+{% for o in client_orders %}
+    <li class="order_in_profile">
+        <h4>Заказ № {{ o.pk }} от {{ o.time_create|date:"d.m.Y" }}</h4>
+        <p>Адрес: {{ o.address }}</p>
+        <p>{{ o.service.name }}</p>
+
+        {% if o.status %}<p>Статус заказа: выполнен</p>
+        {% else %}<p>Статус заказа: в работе</p>{% endif %}
+        <p class='link'><a href="order/{{ o.pk }}">Подробнее...</a></p>
+        {% if not forloop.last %}       <!-- последняя статья не подчеркивается -->
+        <hr>
+        {% endif %}
+    </li>
+{%endfor%}
+</ul>
+
+{% endblock %}

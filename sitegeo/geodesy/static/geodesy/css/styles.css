@@ -1,0 +1,292 @@
+@font-face {
+  font-family: "Montserrat-SemiBold";
+  src: url("../fonts/Montserrat-SemiBold.ttf");
+}
+@font-face {
+  font-family: "Montserrat-ExtraBold";
+  src: url("../fonts/Montserrat-ExtraBold.ttf");
+}
+@font-face {
+  font-family: "Montserrat-Light";
+  src: url("../fonts/Montserrat-Light.ttf");
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-size: 18px;
+    font-family: "Montserrat-Light";
+}
+/* ----- Главное меню -----*/
+.mainmenu {
+    background-color: #05386b;
+    width: 100%;
+    display: flex;
+    font-family: "Montserrat-SemiBold";
+}
+
+.last button {
+    background-color: #05386b;
+    color: #edf5e1;
+    padding: 1em;
+    border-width: 0;
+    font-family: "Montserrat-SemiBold";
+    font-size: 1em;
+    cursor: pointer;
+}
+.last button:hover {
+    background-color: #379683;
+}
+
+.last {
+    margin-left: auto;
+}
+.last li {
+    display: flex;
+}
+
+.mainmenu>ul {
+    display: flex;
+    list-style: none;
+}
+
+.mainmenu p {
+    color: #edf5e1;
+    padding: 1em;
+}
+
+.mainmenu a {
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+    color: #edf5e1;
+}
+
+.mainmenu a:hover {
+    background-color: #379683;
+}
+
+/* ----- /Главное меню -----*/
+
+.content {
+    flex: 1;
+    height: 100%;
+    background-color: #5cdb95;
+    padding-top: 3em;
+    padding-bottom: 3em;
+    padding-left: 7em;
+    padding-right: 7em;
+}
+
+.content>h1 {
+    font-family: "Montserrat-ExtraBold";
+    padding-bottom: 1em;
+}
+
+ul.post li {
+    list-style: none;
+    padding-bottom: 1.5em;
+}
+
+ul.service li {
+    list-style: none;
+    padding-bottom: 1.5em;
+}
+
+h2 {
+    font-family: "Montserrat-SemiBold";
+    padding-bottom: 0.5em;
+}
+
+p.link {
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
+}
+
+p.link a {
+    background-color: #05386b;
+    display: inline-block;
+    padding: 0.5em;
+    text-decoration: none;
+    font-family: "Montserrat-Light";
+    color: #edf5e1;
+}
+
+.post a:hover {
+    background-color: #379683;
+}
+
+/* ----- админ меню в profile ----- */
+.admin-menu {
+    display: flex;
+    list-style: none;
+}
+.admin-menu li {
+    padding: 0em 1.5em 0.5em 0em;
+}
+.admin-menu a {
+    text-decoration: none;
+    background-color: #05386b;
+    display: inline-block;
+    padding: 0.3em;
+    font-size: 16px;
+    text-decoration: none;
+    color: #edf5e1;
+}
+/* ----- /админ меню в profile ----- */
+
+/* ----- таблица прайс ----- */
+.table-price {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table-price td, th {
+    border: 0.125em solid #05386b;
+    padding: 0.5em;
+}
+
+.col-price {
+    text-align: center;
+}
+/* ----- /таблица прайс ----- */
+
+.img-useful {
+    width: 250px;
+    float: right;
+    margin: 0em 0em 1em 1em;
+    opacity: 0.8;
+}
+
+.img-post {
+    width: 600px;
+    float: right;
+    margin: 1em 0em 1em 1em;
+    opacity: 0.85;
+}
+
+/* ----- Формы для заполнения -----*/
+.title-form {
+    display: flex;
+    justify-content: center;
+}
+
+.form-form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    max-width: 375px;
+    gap: 0.5em;
+    padding: 0em;
+}
+.form-form p {display: flex;}
+
+.form-form label{
+    width: 160px;
+}
+
+.form-form input {
+  flex: 1;
+  font-family: "Montserrat-Light";
+  }
+
+.form-form textarea {
+  font-family: "Montserrat-Light";
+  resize: none;
+  width: 210px;
+  }
+
+.form-form button{
+    margin: auto;
+    width: 150px;
+    font-family: "Montserrat-Light";
+    font-size: 1em;
+    background-color: #05386b;
+    color: #edf5e1;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+.form-form button:hover {background-color: #379683;}
+
+p.dop {
+    justify-content: space-between;
+    padding-top: 0.5em;
+}
+p.dop a {text-decoration: none;}
+
+.form-error ul {
+    list-style: none;
+    color: red;
+    padding-bottom: 0.3em;
+    font-size: 0.8em;
+}
+
+.addorder-form {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    gap: 0.5em;
+    padding: 0em;
+}
+.addorder-form p{display: flex;}
+
+.addorder-form label { width: 200px;}
+.addorder-form input, select {
+    width: 400px;
+    flex: 1;
+    font-family: "Montserrat-Light";
+}
+
+.addorder-form textarea {
+    font-family: "Montserrat-Light";
+    resize: none;
+    width: 395px;
+}
+
+.addorder-form button{
+    margin: auto;
+    width: 150px;
+    font-family: "Montserrat-Light";
+    font-size: 1em;
+    background-color: #05386b;
+    color: #edf5e1;
+    border: none;
+    cursor: pointer;
+    padding: 0.5em;
+    border-radius: 5px;
+}
+.addorder-form button:hover {background-color: #379683;}
+
+
+/* ----- /Формы для заполнения -----*/
+
+/* ----- Заказы -----*/
+
+
+li.order_in_profile {
+    list-style: none;
+    padding: 0.5em;
+
+}
+
+/* ----- /Заказы -----*/
+
+/* ----- Footer -----*/
+.footer {
+    padding: 1em;
+    background-color: #05386b;
+}
+.footer p {
+    font-size: 16px;
+    color: #8ee4af;
+    text-align: center;
+}
+/* ----- /Footer -----*/

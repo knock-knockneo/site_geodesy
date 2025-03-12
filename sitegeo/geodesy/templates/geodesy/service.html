@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{{service_main.name}}</h2>
+
+    {% if service_main.photo %}
+    <p><img class="img-service" src="{{service_main.photo.url}}" alt=""></p>
+    {% endif %}
+
+    {% autoescape off %}
+    {{service_main.content|linebreaks}}
+    {% endautoescape %}
+
+    <h3>Стоимость</h3>
+
+    <table class="table-price">
+    <thead><tr>
+        <th>Наименование</th>
+        <th>Цена в рублях</th>
+    </tr></thead>
+    {% for s in services %}
+        <tr><td>
+            {{s.name}}
+        </td><td class="col-price">
+            {{s.price}}
+        </td></tr>
+    {% endfor %}
+    </table>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="title-form">Авторизация</h1>
+
+<form class="form-form" method="post">
+    {% csrf_token %}
+
+    <input type="hidden" name="next" value="{{ next }}"/>
+    <div class="form-error">{{ form.non_field_errors }}</div>    <!-- *1 -->
+    {% for field in form %}     <!-- *2 -->
+    <p><label class="form-label" for="{{ field.id_for_label }}">{{field.label}}</label>{{ field }}</p>
+    <div class="form-error">{{ field.errors }}</div>
+    {% endfor %}
+    <p><button type="submit">Войти</button></p>
+    <p class="dop"><a href="#">Забыли пароль</a><a href="{% url 'users:register' %}">Регистрация</a></p>
+</form>
+{% endblock %}
+
+<!-- *1 - ошибки не связанные с полями ввода -->
+<!-- *2 - перебор всех полей формы -->

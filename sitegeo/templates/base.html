@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+    <link rel="icon"  href="{% static 'geodesy/images/icon.png' %}">
+    <link rel="stylesheet" href="{% static 'geodesy/css/styles.css' %}">
+</head>
+<body>
+    <!-- главное меню -->
+<div class="mainmenu">
+    <ul>
+        <li><a href="{% url 'home' %}">Главная</a></li>
+        {% for m in mainmenu %}
+        <li><a href="{% url m.url_name %}">{{m.title}}</a></li>
+        {% endfor %}
+    </ul>
+
+    <ul class="last">
+    {% if user.is_authenticated %}      <!-- если авторизован -->
+    <li>
+        <a href="{% url 'users:account' %}">{{ user.username }}</a>
+        <form method="post" action="{% url 'users:logout' %}">
+        {% csrf_token %}
+        <button type="submit">Выйти</button>
+        </form>
+    </li>
+    {% else %}
+    <li><a href="{% url 'users:login' %}">Войти</a></li>
+    {% endif %}
+    </ul>
+</div>
+    <!-- /главное меню -->
+
+<div class="content">
+    {% block content %} {% endblock %}
+</div>
+
+<div class="footer">
+    <p>Если у вас есть права, то они защищены!</p>
+</div>
+
+</body>
+</html>
+
+<!--
+<a href="{% url 'users:logout' %}">Выйти</a>
+
+<form method="post" action="{% url 'users:logout' %}">
+    {% csrf_token %}
+    <button type="submit">Выйти</button>
+</form>
+-->

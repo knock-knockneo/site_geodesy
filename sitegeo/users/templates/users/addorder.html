@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Новый заказ</h2>
+
+    <form class='addorder-form' method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="form-error">{{ form.non_field_errors }}</div>
+        {% for field in order_form %}
+        <p><label class="form-label" for="{{ field.id_for_label }}">{{field.label}}</label>{{ field }}</p>
+        <div class="form-error">{{ field.errors }}</div>
+        {% endfor %}
+
+        <p><label class="form-label" for="{{ file_form.file.id_for_label }}">{{file_form.file.label}}</label>
+            {{ file_form.file }}</p>
+        <div class="form-error">{{ file_form.file.errors }}</div>
+
+    <button type="submit">Создать</button>
+    </form>
+{% endblock %}

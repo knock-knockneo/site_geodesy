@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>Заказ № {{ order.pk }} от {{ order.time_create|date:"d.m.Y" }}</h2>
+    <p>Заказчик: {{order.user.first_name}}</p>
+    <p>Почта: Тут должен быть телефон, но пока тут почта.  {{order.user.email}}</p>
+    <p>Адрес: {{ order.address }}</p>
+    <p>Выполяняемые работы: {{ order.service.name }}</p>
+    {% if o.status %}<p>Статус заказа: выполнен</p>
+    {% else %}<p>Статус заказа: в работе</p>{% endif %}
+
+    <hr>
+    {% if files %}
+    <p>Файлы для скачивания.</p>
+    {% for file in files %}
+        <p>
+        {{file.get_filename}}
+        <a href="{{ file.file.url }}" download>Скачать {{ file.name }}</a>
+        </p>
+    {% endfor %}
+    {% endif %}
+{% endblock %}
+
+<!--<p><img src="{{ file.file.url }}" style="max-width: 300px;"></p>-->

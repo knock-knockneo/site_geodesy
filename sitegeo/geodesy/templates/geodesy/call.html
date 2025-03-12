@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class="title-form">{{ title }}</h1>
+
+<form class="form-form" method="post">
+    {% csrf_token %}
+
+    <div class="form-error">{{ call_form.non_field_errors }}</div>    <!-- *1 -->
+    {% for field in call_form %}     <!-- *2 -->
+        <p><label class="form-label" for="{{ field.id_for_label }}">{{field.label}}</label>{{ field }}</p>
+        <div class="form-error">{{ field.errors }}</div>
+    {% endfor %}
+    <p><button type="submit">Оставить заявку</button></p>
+
+</form>
+
+{% endblock %}
+<!-- *1 - ошибки не связанные с полями ввода -->
+<!-- *2 - перебор всех полей формы -->

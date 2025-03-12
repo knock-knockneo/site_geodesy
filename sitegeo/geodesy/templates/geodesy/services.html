@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{{title}}</h1>
+<ul class="service">
+    {% for s in services %}
+    <li><h2>{{s.name}}</h2>
+<!--        {% autoescape off %}       &lt;!&ndash; не экранирование тегов &ndash;&gt;-->
+        <p>{{ s.content|linebreaks|truncatewords:30 }}</p>
+<!--        {% endautoescape %}-->
+        <p class="link"><a href="{{ s.get_absolute_url }}">Подробнее...</a></p>
+        {% if not forloop.last %}       <!-- последняя статья не подчеркивается -->
+        <hr>
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
